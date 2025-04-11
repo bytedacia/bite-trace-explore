@@ -7,6 +7,14 @@ interface AudioPlayerProps {
   videoId: string;
 }
 
+// Define the YouTube Player API interface
+declare global {
+  interface Window {
+    YT: any;
+    onYouTubeIframeAPIReady: () => void;
+  }
+}
+
 const AudioPlayer: React.FC<AudioPlayerProps> = ({ videoId }) => {
   const audioRef = useRef<HTMLIFrameElement>(null);
   const [isMuted, setIsMuted] = useState(false);
@@ -33,10 +41,8 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({ videoId }) => {
       const iframe = audioRef.current;
       if (iframe && iframe.contentWindow) {
         if (isMuted) {
-          // @ts-ignore
           iframe.contentWindow.postMessage('{"event":"command","func":"unMute","args":""}', '*');
         } else {
-          // @ts-ignore
           iframe.contentWindow.postMessage('{"event":"command","func":"mute","args":""}', '*');
         }
       }

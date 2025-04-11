@@ -5,6 +5,13 @@ interface VideoBackgroundProps {
   videoId: string;
 }
 
+declare global {
+  interface Window {
+    YT: any;
+    onYouTubeIframeAPIReady: () => void;
+  }
+}
+
 const VideoBackground: React.FC<VideoBackgroundProps> = ({ videoId }) => {
   const iframeRef = useRef<HTMLIFrameElement>(null);
 
@@ -15,10 +22,8 @@ const VideoBackground: React.FC<VideoBackgroundProps> = ({ videoId }) => {
       const firstScriptTag = document.getElementsByTagName("script")[0];
       firstScriptTag.parentNode?.insertBefore(tag, firstScriptTag);
 
-      // @ts-ignore
       window.onYouTubeIframeAPIReady = () => {
-        // @ts-ignore
-        new YT.Player(iframeRef.current, {
+        new window.YT.Player(iframeRef.current, {
           events: {
             onReady: (event: any) => {
               event.target.mute();
