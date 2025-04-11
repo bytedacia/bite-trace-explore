@@ -1,6 +1,6 @@
 
 import React from "react";
-import { Facebook, Instagram, Twitter, Youtube, Linkedin, TiktokIcon } from "lucide-react";
+import { Facebook, Instagram, Twitter, Youtube, Linkedin } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 // Custom TikTok icon since it's not available in Lucide React
@@ -26,7 +26,7 @@ interface SocialLink {
 const socialLinks: SocialLink[] = [
   {
     name: "Instagram",
-    url: "https://www.instagram.com/loc8abite/",
+    url: "https://www.instagram.com/loc8abite?igsh=Znhzbm5wcXNidGdj",
     icon: <Instagram className="w-5 h-5" />,
   },
   {
@@ -36,7 +36,7 @@ const socialLinks: SocialLink[] = [
   },
   {
     name: "Twitter",
-    url: "https://twitter.com/loc8abite",
+    url: "https://x.com/germanyger25094?t=TTtdh64q0NmHVuHRgwbKVQ&s=09",
     icon: <Twitter className="w-5 h-5" />,
   },
   {
@@ -51,7 +51,7 @@ const socialLinks: SocialLink[] = [
   },
   {
     name: "TikTok",
-    url: "https://www.tiktok.com/@bytes_ia?_t=ZN-8vRKba3HAlb&_r=1",
+    url: "https://www.tiktok.com/@loc8abite?_t=ZN-8vRKXGz2lUM&_r=1",
     icon: <TikTok />,
   },
 ];
