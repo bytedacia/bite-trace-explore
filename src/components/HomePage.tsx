@@ -6,7 +6,8 @@ import EmailSignupForm from "./EmailSignupForm";
 import SocialLinks from "./SocialLinks";
 import Logo from "./Logo";
 import { Button } from "@/components/ui/button";
-import { ArrowDown, ArrowUp } from "lucide-react";
+import { ArrowDown, ArrowUp, Instagram, MessageCircle } from "lucide-react";
+import CreatorSocialLinks from "./CreatorSocialLinks";
 
 const HomePage = () => {
   const [showContent, setShowContent] = useState(false);
@@ -100,35 +101,44 @@ const HomePage = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
             {/* Feature 1 */}
             <div className="glass-morphism p-6 rounded-xl text-left">
-              <h3 className="text-xl font-semibold mb-3 text-white">Modalità Esplorazione</h3>
+              <h3 className="text-xl font-semibold mb-3 text-white">L'Arte dell'Esplorazione</h3>
               <p className="text-white/80">
-                Visualizza location casuali di ristoranti attraverso Street View e immagini HD
+                Immergiti in un viaggio virtuale attraverso immagini HD e Street View di ristoranti sorprendenti sparsi per il mondo
               </p>
             </div>
             
             {/* Feature 2 */}
             <div className="glass-morphism p-6 rounded-xl text-left">
-              <h3 className="text-xl font-semibold mb-3 text-white">Sfida di Precisione</h3>
+              <h3 className="text-xl font-semibold mb-3 text-white">La Sfida della Precisione</h3>
               <p className="text-white/80">
-                Posiziona il marker sulla mappa per indovinare l'esatta collocazione del locale
+                Metti alla prova il tuo intuito gastronomico posizionando il marker sulla mappa per indovinare l'esatta location
               </p>
             </div>
             
             {/* Feature 3 */}
             <div className="glass-morphism p-6 rounded-xl text-left">
-              <h3 className="text-xl font-semibold mb-3 text-white">Modalità Quiz</h3>
+              <h3 className="text-xl font-semibold mb-3 text-white">Quiz Culinari</h3>
               <p className="text-white/80">
-                Rispondi a domande tematiche basate su menu, specialità e architettura dei locali
+                Affronta domande creative su menu, piatti tipici e caratteristiche architettoniche dei locali più distintivi
               </p>
             </div>
             
             {/* Feature 4 */}
             <div className="glass-morphism p-6 rounded-xl text-left">
-              <h3 className="text-xl font-semibold mb-3 text-white">Sfide Personalizzate</h3>
+              <h3 className="text-xl font-semibold mb-3 text-white">Competizione Sociale</h3>
               <p className="text-white/80">
-                Crea sfide e tornei a tema con i tuoi amici e altri appassionati del settore
+                Crea tornei personalizzati, sfida i tuoi amici e confronta i punteggi con appassionati di food da tutto il mondo
               </p>
             </div>
+          </div>
+          
+          {/* Creator Section */}
+          <div className="glass-morphism p-6 rounded-xl text-left mb-12">
+            <h3 className="text-xl font-semibold mb-3 text-white text-center">Segui il Creatore</h3>
+            <p className="text-white/80 text-center mb-4">
+              Scopri di più sul genio creativo dietro Loc8ABite e segui i suoi aggiornamenti personali
+            </p>
+            <CreatorSocialLinks />
           </div>
           
           {/* Back to Top Button */}
