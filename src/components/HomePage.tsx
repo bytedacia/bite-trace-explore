@@ -115,19 +115,19 @@ const HomePage = () => {
               </p>
             </div>
             
-            {/* Feature 3 */}
+            {/* Feature 3 - Updated from Quiz to Multiplayer */}
             <div className="glass-morphism p-6 rounded-xl text-left">
-              <h3 className="text-xl font-semibold mb-3 text-white">Quiz Culinari</h3>
+              <h3 className="text-xl font-semibold mb-3 text-white">Multiplayer Globale</h3>
               <p className="text-white/80">
-                Affronta domande creative su menu, piatti tipici e caratteristiche architettoniche dei locali più distintivi
+                Sfida giocatori da tutto il mondo in match in tempo reale e scala le classifiche internazionali con le tue abilità culinarie
               </p>
             </div>
             
-            {/* Feature 4 */}
+            {/* Feature 4 - Updated to Custom Maps */}
             <div className="glass-morphism p-6 rounded-xl text-left">
-              <h3 className="text-xl font-semibold mb-3 text-white">Competizione Sociale</h3>
+              <h3 className="text-xl font-semibold mb-3 text-white">Mappe Personalizzate</h3>
               <p className="text-white/80">
-                Crea tornei personalizzati, sfida i tuoi amici e confronta i punteggi con appassionati di food da tutto il mondo
+                Crea i tuoi percorsi gastronomici unici, condividili con la community e scopri le creazioni più apprezzate dagli altri giocatori
               </p>
             </div>
           </div>
