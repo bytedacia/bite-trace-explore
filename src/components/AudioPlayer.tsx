@@ -17,7 +17,7 @@ declare global {
 
 const AudioPlayer: React.FC<AudioPlayerProps> = ({ videoId }) => {
   const audioRef = useRef<HTMLIFrameElement>(null);
-  const [isMuted, setIsMuted] = useState(false);
+  const [isMuted, setIsMuted] = useState(false); // Start with sound on by default
 
   useEffect(() => {
     const loadYouTubeIframeAPI = () => {
