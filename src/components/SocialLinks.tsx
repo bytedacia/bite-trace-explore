@@ -1,6 +1,6 @@
 
 import React from "react";
-import { Facebook, Instagram, Twitter, Youtube, Linkedin } from "lucide-react";
+import { Instagram, Twitter, Youtube } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 // Custom TikTok icon since it's not available in Lucide React
@@ -30,19 +30,9 @@ const socialLinks: SocialLink[] = [
     icon: <Instagram className="w-5 h-5" />,
   },
   {
-    name: "Facebook",
-    url: "https://www.facebook.com/profile.php?id=61555889236241",
-    icon: <Facebook className="w-5 h-5" />,
-  },
-  {
     name: "Twitter",
     url: "https://x.com/germanyger25094?t=TTtdh64q0NmHVuHRgwbKVQ&s=09",
     icon: <Twitter className="w-5 h-5" />,
-  },
-  {
-    name: "LinkedIn",
-    url: "https://www.linkedin.com/company/loc8abite",
-    icon: <Linkedin className="w-5 h-5" />,
   },
   {
     name: "YouTube",
