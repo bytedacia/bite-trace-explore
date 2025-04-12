@@ -6,7 +6,7 @@ import EmailSignupForm from "./EmailSignupForm";
 import SocialLinks from "./SocialLinks";
 import Logo from "./Logo";
 import { Button } from "@/components/ui/button";
-import { ArrowDown } from "lucide-react";
+import { ArrowDown, ArrowUp } from "lucide-react";
 
 const HomePage = () => {
   const [showContent, setShowContent] = useState(false);
@@ -18,6 +18,13 @@ const HomePage = () => {
 
     return () => clearTimeout(timer);
   }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
 
   return (
     <div className="relative min-h-screen">
@@ -72,9 +79,9 @@ const HomePage = () => {
                 document.getElementById("features")?.scrollIntoView({ behavior: "smooth" });
               }}
               variant="outline"
-              className="glass-morphism border-white/20 text-white hover:bg-white/20"
+              className="glass-morphism border-white/20 text-white hover:bg-white/20 group transition-all duration-300"
             >
-              Scopri di più <ArrowDown className="ml-2 w-4 h-4" />
+              Scopri di più <ArrowDown className="ml-2 w-4 h-4 group-hover:animate-bounce" />
             </Button>
           </div>
         </div>
@@ -90,7 +97,7 @@ const HomePage = () => {
             Cosa offre Loc8ABite?
           </h2>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
             {/* Feature 1 */}
             <div className="glass-morphism p-6 rounded-xl text-left">
               <h3 className="text-xl font-semibold mb-3 text-white">Modalità Esplorazione</h3>
@@ -122,6 +129,17 @@ const HomePage = () => {
                 Crea sfide e tornei a tema con i tuoi amici e altri appassionati del settore
               </p>
             </div>
+          </div>
+          
+          {/* Back to Top Button */}
+          <div className="animate-fade-in">
+            <Button
+              onClick={scrollToTop}
+              variant="outline"
+              className="glass-morphism border-white/20 text-white hover:bg-white/20 group transition-all duration-300"
+            >
+              Torna all'inizio <ArrowUp className="ml-2 w-4 h-4 group-hover:animate-bounce" />
+            </Button>
           </div>
         </div>
       </div>
