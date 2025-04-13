@@ -36,16 +36,13 @@
     font-feature-settings: "ss01", "ss02", "cv01", "cv02", "cv03";
     margin: 0;
     padding: 0;
-    overflow-x: hidden;
-    scroll-behavior: smooth;
+    overflow: hidden;
   }
 
   html {
-    @apply scroll-smooth;
     margin: 0;
     padding: 0;
-    overflow-x: hidden;
-    scroll-padding-top: 1rem;
+    overflow: hidden;
   }
 }
 
@@ -56,10 +53,6 @@
   
   .text-gradient {
     @apply bg-gradient-to-br from-white via-white/90 to-white/70 bg-clip-text text-transparent;
-  }
-  
-  .scroll-indicator {
-    @apply absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce;
   }
 }
 
@@ -99,39 +92,10 @@
   }
 }
 
-/* Enhanced scrolling */
-html {
-  scroll-snap-type: y proximity;
-  scroll-padding: 1rem;
-}
-
-.min-h-screen {
-  scroll-snap-align: start;
-  scroll-margin-top: 1rem;
-}
-
-/* Better button visibility on hover */
+/* Better visibility on hover */
 .glass-morphism:hover {
   @apply bg-black/60 border-white/20;
-  transform: translateY(-2px);
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4);
-}
-
-/* Button animation for scroll indicators */
-@keyframes float {
-  0% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-8px);
-  }
-  100% {
-    transform: translateY(0px);
-  }
-}
-
-.animate-float {
-  animation: float 3s ease-in-out infinite;
+  box-shadow: 0 8px 20px -4px rgba(0, 0, 0, 0.4);
 }
 
 /* Responsive adjustments */
@@ -146,4 +110,18 @@ html {
     min-height: 44px;
     min-width: 44px;
   }
+}
+
+/* Animation for content */
+@keyframes pulse-slow {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 4s ease-in-out infinite;
 }
