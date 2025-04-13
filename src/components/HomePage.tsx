@@ -7,6 +7,8 @@ import EmailSignupForm from "./EmailSignupForm";
 import SocialLinks from "./SocialLinks";
 import Logo from "./Logo";
 import CreatorSocialLinks from "./CreatorSocialLinks";
+import { Button } from "./ui/button";
+import { ChevronDown } from "lucide-react";
 
 const HomePage = () => {
   const [showContent, setShowContent] = useState(false);
@@ -21,6 +23,11 @@ const HomePage = () => {
       clearTimeout(timer);
     };
   }, []);
+
+  const handleScopriClick = () => {
+    // Button action without scrolling - could be used for showing more content in the future
+    console.log("Scopri di più clicked");
+  };
 
   return (
     <div className="relative min-h-screen overflow-hidden">
@@ -50,6 +57,16 @@ const HomePage = () => {
             <p className="text-base sm:text-lg text-white/80 max-w-2xl mx-auto px-2">
               Un'esperienza unica che combina la passione per il cibo e l'avventura della scoperta
             </p>
+          </div>
+          
+          {/* Scopri di più Button */}
+          <div className="mb-8 animate-fade-in" style={{ animationDelay: "0.5s" }}>
+            <Button 
+              onClick={handleScopriClick}
+              className="bg-white/10 hover:bg-white/20 text-white border border-white/20 backdrop-blur-sm"
+            >
+              Scopri di più <ChevronDown className="ml-1 h-4 w-4" />
+            </Button>
           </div>
           
           {/* Features and Email in a grid */}
