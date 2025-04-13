@@ -2,6 +2,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Volume2, VolumeX } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 interface AudioPlayerProps {
   videoId: string;
@@ -18,6 +19,7 @@ declare global {
 const AudioPlayer: React.FC<AudioPlayerProps> = ({ videoId }) => {
   const audioRef = useRef<HTMLIFrameElement>(null);
   const [isMuted, setIsMuted] = useState(false); // Start with sound on by default
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     const loadYouTubeIframeAPI = () => {
@@ -52,7 +54,7 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({ videoId }) => {
   };
 
   return (
-    <div className="fixed bottom-6 right-6 z-50">
+    <div className={`fixed ${isMobile ? 'bottom-4 right-4' : 'bottom-6 right-6'} z-50`}>
       <iframe
         ref={audioRef}
         className="hidden"
@@ -63,11 +65,11 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({ videoId }) => {
       
       <Button 
         onClick={toggleMute} 
-        size="icon" 
+        size={isMobile ? "sm" : "icon"} 
         variant="outline" 
-        className="w-10 h-10 rounded-full glass-morphism hover:bg-white/20 transition-all duration-300"
+        className={`${isMobile ? 'w-9 h-9' : 'w-10 h-10'} rounded-full glass-morphism hover:bg-white/20 transition-all duration-300`}
       >
-        {isMuted ? <VolumeX className="w-5 h-5" /> : <Volume2 className="w-5 h-5" />}
+        {isMuted ? <VolumeX className={`${isMobile ? 'w-4 h-4' : 'w-5 h-5'}`} /> : <Volume2 className={`${isMobile ? 'w-4 h-4' : 'w-5 h-5'}`} />}
       </Button>
     </div>
   );

@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -31,17 +32,18 @@
   }
   
   body {
-    @apply bg-background text-foreground antialiased overflow-hidden;
+    @apply bg-background text-foreground antialiased;
     font-feature-settings: "ss01", "ss02", "cv01", "cv02", "cv03";
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
   }
 
   html {
     @apply scroll-smooth;
     margin: 0;
     padding: 0;
-    overflow: hidden;
+    overflow-x: hidden;
   }
 }
 
@@ -90,3 +92,12 @@
     width: 177.78vh; /* width = 100 * (16/9) = 177.78 */
   }
 }
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
