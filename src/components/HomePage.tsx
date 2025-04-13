@@ -12,6 +12,7 @@ import CreatorSocialLinks from "./CreatorSocialLinks";
 
 const HomePage = () => {
   const [showContent, setShowContent] = useState(false);
+  const [scrollPosition, setScrollPosition] = useState(0);
   const isMobile = useIsMobile();
 
   useEffect(() => {
@@ -19,7 +20,17 @@ const HomePage = () => {
       setShowContent(true);
     }, 1000);
 
-    return () => clearTimeout(timer);
+    // Track scroll position
+    const handleScroll = () => {
+      setScrollPosition(window.scrollY);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, []);
 
   const scrollToTop = () => {
@@ -27,6 +38,19 @@ const HomePage = () => {
       top: 0,
       behavior: "smooth",
     });
+  };
+
+  const scrollToFeatures = () => {
+    const featuresElement = document.getElementById("features");
+    if (featuresElement) {
+      const yOffset = -20; // Small offset to avoid exact edge
+      const y = featuresElement.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      
+      window.scrollTo({
+        top: y,
+        behavior: "smooth",
+      });
+    }
   };
 
   return (
@@ -75,16 +99,15 @@ const HomePage = () => {
             <SocialLinks className="mb-12" />
           </div>
           
-          {/* Scroll Down Button for Feature Highlights */}
+          {/* Scroll Down Button - More visible and with animation */}
           <div className="animate-fade-in" style={{ animationDelay: "1s" }}>
             <Button
-              onClick={() => {
-                document.getElementById("features")?.scrollIntoView({ behavior: "smooth" });
-              }}
+              onClick={scrollToFeatures}
               variant="outline"
-              className="glass-morphism border-white/20 text-white hover:bg-white/20 group transition-all duration-300"
+              className="glass-morphism border-white/20 text-white hover:bg-white/20 group transition-all duration-300 scale-110 hover:scale-125"
+              size={isMobile ? "default" : "lg"}
             >
-              Scopri di più <ArrowDown className="ml-2 w-4 h-4 group-hover:animate-bounce" />
+              Scopri di più <ArrowDown className="ml-2 w-4 h-4 animate-bounce" />
             </Button>
           </div>
         </div>
@@ -143,14 +166,15 @@ const HomePage = () => {
             <CreatorSocialLinks />
           </div>
           
-          {/* Back to Top Button */}
+          {/* Back to Top Button - More visible and with animation */}
           <div className="animate-fade-in">
             <Button
               onClick={scrollToTop}
               variant="outline"
-              className="glass-morphism border-white/20 text-white hover:bg-white/20 group transition-all duration-300"
+              className="glass-morphism border-white/20 text-white hover:bg-white/20 group transition-all duration-300 scale-110 hover:scale-125"
+              size={isMobile ? "default" : "lg"}
             >
-              Torna all'inizio <ArrowUp className="ml-2 w-4 h-4 group-hover:animate-bounce" />
+              Torna all'inizio <ArrowUp className="ml-2 w-4 h-4 animate-bounce" />
             </Button>
           </div>
         </div>
